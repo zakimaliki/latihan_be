@@ -6,7 +6,7 @@ const {validate} = require('../middleware/common')
 router.get('/', productController.getAllProduct);
 router.get('/:id', productController.getDetailProduct);
 router.post('/', validate, productController.createProduct);
-router.put('/:id',validate, productController.updateProduct);
+router.put('/:id', validate, productController.updateProduct);
 router.delete('/:id', productController.deleteProduct);
 
 module.exports = router;
