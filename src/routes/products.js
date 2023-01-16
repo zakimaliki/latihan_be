@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const productController = require('../controller/products');
-const {validate} = require('../middleware/common')
+// const {validate} = require('../middleware/common')
+const {protect} = require('../middleware/auth')
+const upload = require('../middleware/upload')
 
-router.get('/', productController.getAllProduct);
+
+router.get('/',protect , productController.getAllProduct);
 router.get('/:id', productController.getDetailProduct);
-router.post('/', validate, productController.createProduct);
-router.put('/:id', validate, productController.updateProduct);
+router.post('/', upload.single('photo') , productController.createProduct);
+router.put('/:id', upload.single('photo') , productController.updateProduct);
 router.delete('/:id', productController.deleteProduct);
 
 module.exports = router;

@@ -5,6 +5,23 @@
 --     stock int not null
 -- );
 
+-- CREATE TABLE products(
+--     id VARCHAR  PRIMARY KEY,
+--     name VARCHAR NOT NULL,
+--     stock INT NOT NULL,
+--     price INT NOT NULL,
+--     photo VARCHAR NOT NULL,
+--     description VARCHAR NOT NULL
+-- );
+
+-- CREATE TABLE users(
+--     id VARCHAR PRIMARY KEY,
+--     email VARCHAR NOT NULL,
+--     password VARCHAR NOT NULL,
+--     fullname VARCHAR NOT NULL,
+--     role VARCHAR NOT NULL
+-- );
+
 -- insert into products(id,name,price,stock) 
 -- values(1,'baju', 100000,12),
 -- (2,'kemeja', 120000,20),

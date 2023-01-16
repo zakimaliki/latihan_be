@@ -5,21 +5,21 @@ const selectAllProduct = (limit, offset, searchParam,sortBY,sort) =>{
 }
 
 const selectProduct = (id) =>{
-    return Pool.query(`SELECT * FROM products WHERE id=${id}`);
+    return Pool.query(`SELECT * FROM products WHERE id='${id}'`);
 }
 
 const insertProduct = (data) =>{
-    const { id,name,stock,price} = data;
-    return Pool.query(`INSERT INTO products(id,name,stock,price) VALUES(${id},'${name}',${stock},${price})`);
+    const { id,name,stock,price, photo, description} = data;
+    return Pool.query(`INSERT INTO products(id,name,stock,price, photo, description) VALUES('${id}','${name}',${stock},${price},'${photo}','${description}')`);
 }
 
 const updateProduct = (data) =>{
-    const { id,name,stock,price} = data;
-    return Pool.query(`UPDATE products SET name='${name}', stock=${stock}, price=${price} WHERE id=${id}`);
+    const { id,name,stock,price, photo, description} = data;
+    return Pool.query(`UPDATE products SET name='${name}', stock=${stock}, price=${price}, photo='${photo}', description='${description}' WHERE id='${id}'`);
 }
 
 const deleteProduct = (id) =>{
-    return Pool.query(`DELETE FROM products WHERE id=${id}`);
+    return Pool.query(`DELETE FROM products WHERE id='${id}'`);
 }
 
 const countData = () =>{
@@ -28,7 +28,7 @@ const countData = () =>{
   
 const findId =(id)=>{
     return  new Promise ((resolve,reject)=> 
-    Pool.query(`SELECT id FROM products WHERE id=${id}`,(error,result)=>{
+    Pool.query(`SELECT id FROM products WHERE id='${id}'`,(error,result)=>{
       if(!error){
         resolve(result)
       }else{
